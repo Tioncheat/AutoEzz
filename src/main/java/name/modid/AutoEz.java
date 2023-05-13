@@ -38,7 +38,7 @@ public class AutoEz implements ModInitializer {
                 "try again next time, " + player.getEntityName(),
                 "ez, " + player.getEntityName(),
                 "GGWP, " + player.getEntityName(),
-                "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ, " + player.getEntityName()
+                "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ " + player.getEntityName()
         };
 
         return deathMessages[random.nextInt(deathMessages.length)];
