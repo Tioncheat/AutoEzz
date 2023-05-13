@@ -11,13 +11,11 @@ import java.util.Random;
 public class AutoEz implements ModInitializer {
     private static final Map<ServerPlayerEntity, ServerPlayerEntity> killers = new HashMap<>();
     private static final Random random = new Random();
-
     private final ServerPlayerEntity yourPlayerEntity;
 
     public AutoEz(ServerPlayerEntity yourPlayerEntity) {
         this.yourPlayerEntity = yourPlayerEntity;
     }
-
 
     @Override
     public void onInitialize() {
@@ -27,7 +25,7 @@ public class AutoEz implements ModInitializer {
 
                 if (killer == yourPlayerEntity) {
                     String deathMessage = getDeathMessage(oldPlayer);
-                    Text message = Text.of("[" + deathMessage + "]");
+                    Text message = Text.of(deathMessage);
                     killer.sendMessage(message, false);
                 }
 
