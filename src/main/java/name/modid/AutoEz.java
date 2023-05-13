@@ -18,34 +18,37 @@ public class AutoEz implements ModInitializer {
     private static final Map<ServerPlayerEntity, ServerPlayerEntity> killers = new HashMap<>();
     private static final Random random = new Random();
 
-    private static final String[] DEATH_MESSAGES = {
-            "LMFAO EZ",
-            "bro you died? %s",
-            "try again next time %s",
-            "ez %s",
-            "ggwp %s",
-            "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ %s"
-    };
-
-    private ServerPlayerEntity yourPlayerEntity;
+    private ServerPlayerEntity yourPlayerEntity; // Reference to your player entity
 
     @Override
     public void onInitialize() {
         ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, alive) -> {
             if (alive && killers.containsKey(oldPlayer)) {
-                ServerPlayerEntity attacker = killers.get(oldPlayer);
+                ServerPlayerEntity killer = killers.get(oldPlayer);
 
                 // Check if the killer is you
-                if (attacker == yourPlayerEntity) {
-                    String deathMessage = DEATH_MESSAGES[random.nextInt(DEATH_MESSAGES.length)];
-                    deathMessage = deathMessage.replace("%s", oldPlayer.getDisplayName().getString());
-                    Text message = Text.of(deathMessage);
-                    attacker.sendMessage(message, false);
+                if (killer == yourPlayerEntity) {
+                    String deathMessage = getDeathMessage(oldPlayer);
+                    Text message = Text.of("[" + deathMessage + "]");
+                    killer.sendMessage(message, false);
                 }
 
                 killers.remove(oldPlayer);
             }
         });
+    }
+
+    private String getDeathMessage(ServerPlayerEntity player) {
+        String[] deathMessages = {
+                "LMFAO EZ",
+                "bro you died? " + player.getEntityName(),
+                "try again next time " + player.getEntityName(),
+                "ez " + player.getEntityName(),
+                "GGWP " + player.getEntityName(),
+                "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ " + player.getEntityName()
+        };
+
+        return deathMessages[random.nextInt(deathMessages.length)];
     }
 
     public static void setKiller(ServerPlayerEntity player, ServerPlayerEntity killer) {
