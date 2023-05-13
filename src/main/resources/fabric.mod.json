@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "autoezzzzz",
+	"version": "${version}",
+	"name": "autoezzzzz",
+	"description": "just ez",
+	"authors": [
+		"Tion_D"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/autoezzzzz/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"name.modid.AutoEz"
+		],
+		"client": [
+			"name.modid.EzClient"
+		],
+		"fabric-datagen": [
+			"name.modid.AutoEzDataGenerator"
+		]
+	},
+	"mixins": [
+		"autoezzzzz.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.19",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
