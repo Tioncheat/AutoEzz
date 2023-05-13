@@ -15,3 +15,7 @@ If you are the killer, the mod randomly selects a death message from the DEATH_M
 The mod sends the death message to your player entity using the sendMessage() method of the ServerPlayerEntity class.
 
 The mod removes the killed player from the killers map, as the death message has been sent.
+
+Example of what it will print in the chat:
+
+```[bro you died? playername]```
