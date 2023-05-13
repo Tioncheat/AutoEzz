@@ -33,18 +33,14 @@ public class AutoEz implements ModInitializer {
 
     private String getDeathMessage(ServerPlayerEntity player) {
         String[] deathMessages = {
-                "LMFAO EZ",
+                "LMFAO EZZ",
                 "bro you died? " + player.getEntityName(),
-                "try again next time " + player.getEntityName(),
-                "ez " + player.getEntityName(),
-                "GGWP " + player.getEntityName(),
-                "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ " + player.getEntityName()
+                "try again next time, " + player.getEntityName(),
+                "ez, " + player.getEntityName(),
+                "GGWP, " + player.getEntityName(),
+                "EZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ, " + player.getEntityName()
         };
 
         return deathMessages[random.nextInt(deathMessages.length)];
-    }
-
-    public static void setKiller(ServerPlayerEntity player, ServerPlayerEntity killer) {
-        killers.put(player, killer);
     }
 }
