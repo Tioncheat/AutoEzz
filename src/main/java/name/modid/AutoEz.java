@@ -18,6 +18,7 @@ public class AutoEz implements ModInitializer {
         this.yourPlayerEntity = yourPlayerEntity;
     }
 
+
     @Override
     public void onInitialize() {
         ServerPlayerEvents.AFTER_RESPAWN.register((oldPlayer, newPlayer, alive) -> {
