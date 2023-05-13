@@ -11,11 +11,7 @@ import java.util.Random;
 public class AutoEz implements ModInitializer {
     private static final Map<ServerPlayerEntity, ServerPlayerEntity> killers = new HashMap<>();
     private static final Random random = new Random();
-    private final ServerPlayerEntity yourPlayerEntity;
-
-    public AutoEz(ServerPlayerEntity yourPlayerEntity) {
-        this.yourPlayerEntity = yourPlayerEntity;
-    }
+    private ServerPlayerEntity yourPlayerEntity;
 
     @Override
     public void onInitialize() {
