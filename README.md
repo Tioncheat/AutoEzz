@@ -1,21 +1,20 @@
 # AutoEzz
 
-The mod initializes as a Fabric mod by implementing the ModInitializer interface. This allows the mod to run code during the game initialization phase.
-
-The mod listens to the AFTER_RESPAWN event provided by the ServerPlayerEvents class. This event is triggered after a player respawns in the game.
-
-When a player respawns, the mod checks if the player was killed by another player. It does this by checking if the killed player exists in the killers map, which stores the relationship between killed players and their killers.
-
-If the killed player is found in the killers map, the mod retrieves the killer associated with the killed player.
-
-The mod compares the retrieved killer with your player entity (yourPlayerEntity) to determine if you are the killer.
-
-If you are the killer, the mod randomly selects a death message from the DEATH_MESSAGES array. The %s placeholder in the death message is replaced with the killed player's display name.
-
-The mod sends the death message to your player entity using the sendMessage() method of the ServerPlayerEntity class.
-
-The mod removes the killed player from the killers map, as the death message has been sent.
+By using this mod, whenever you kill another player in Minecraft, a random death message will be chosen and sent to the chat, with the name of the killed player included. This adds a fun and interactive element to the game, allowing other players to see your victory message when you eliminate someone.
 
 Example of what it will print in the chat:
 
 ```bro you died? playername```
+
+**How this mod works**
+Initialization: The mod implements the `ClientModInitializer` interface, which allows it to initialize and set up the mod when the client starts.
+
+Event Registration: The mod registers an event listener for the `AttackEntityCallback` event. This event is triggered whenever a player attacks an entity.
+
+Checking for Player Kill: Inside the event listener, the mod checks if the attacked entity is an instance of `PlayerEntity` (meaning another player) and if that player is dead.
+
+Generating Death Message: If the attacked player is dead, the mod selects a random death message from an array of predefined death messages.
+
+Formatting and Sending Chat Message: The selected death message is formatted by appending the name of the attacked player. The formatted message is then sent to the chat using the `sendChatMessage` method.
+
+Message Display: The death message is displayed in the chat for everyone to see.
