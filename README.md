@@ -18,4 +18,4 @@ The mod removes the killed player from the killers map, as the death message has
 
 Example of what it will print in the chat:
 
-```[bro you died? playername]```
+```bro you died? playername```
