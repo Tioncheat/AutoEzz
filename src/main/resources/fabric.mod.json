@@ -15,14 +15,8 @@
 	"icon": "assets/autoezzzzz/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
-			"name.modid.AutoEz"
-		],
 		"client": [
 			"name.modid.EzClient"
-		],
-		"fabric-datagen": [
-			"name.modid.AutoEzDataGenerator"
 		]
 	},
 	"mixins": [
