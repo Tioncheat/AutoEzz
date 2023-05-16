@@ -29,7 +29,7 @@ public class EzClient implements ClientModInitializer {
             if (entity instanceof PlayerEntity) {
                 PlayerEntity attackedPlayer = (PlayerEntity) entity;
 
-                if (attackedPlayer.isDead()) {
+                if (attackedPlayer.isDead() && modEnabled) {
                     // Generate a random death message
                     String deathMessage = deathMessages[(int) (Math.random() * deathMessages.length)];
 
@@ -66,12 +66,20 @@ public class EzClient implements ClientModInitializer {
                     })
                     .then(ClientCommandManager.literal("on")
                             .executes(context -> {
+                                if(modEnabled)
+                                {
+                                    context.getSource().sendFeedback(Text.of("AutoEz is already turned on"));
+                                }
                                 modEnabled = true;
                                 context.getSource().sendFeedback(Text.of("AutoEz has been turned on"));
                                 return 1;
                             }))
                     .then(ClientCommandManager.literal("off")
                             .executes(context -> {
+                                if(!modEnabled)
+                                {
+                                    context.getSource().sendFeedback(Text.of("AutoEz is already turned off"));
+                                }
                                 modEnabled = false;
                                 context.getSource().sendFeedback(Text.of("AutoEz has been turned off"));
                                 return 1;
