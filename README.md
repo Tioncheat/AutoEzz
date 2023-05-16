@@ -19,7 +19,7 @@ Formatting and Sending Chat Message: The selected death message is formatted by 
 
 Message Display: The death message is displayed in the chat for everyone to see.
 
-# How To Edit This
+# How To Edit This Mod
 Simply download download the zip and extract it. Open it in an IDE. 
 Edit the things you want to change, add some death message if you want
 `./gradlew build` to build this
