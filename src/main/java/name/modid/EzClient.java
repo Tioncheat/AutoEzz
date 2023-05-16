@@ -90,7 +90,7 @@ public class EzClient implements ClientModInitializer {
     private void sendChatMessageToPlayer(PlayerEntity player, String message) {
         if (player instanceof ServerPlayerEntity) {
             Text text = Text.of(message);
-            player.sendMessage(text, false);
+            MinecraftClient.getInstance().inGameHud.getChatHud().addMessage(text);
         }
     }
 }
