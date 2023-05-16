@@ -15,11 +15,11 @@ Checking for Player Kill: Inside the event listener, the mod checks if the attac
 
 Generating Death Message: If the attacked player is dead, the mod selects a random death message from an array of predefined death messages.
 
-Formatting and Sending Chat Message: The selected death message is formatted by appending the name of the attacked player. The formatted message is then sent to the chat using the `sendChatMessage` method.
+Formatting and Sending Chat Message: The selected death message is formatted by appending the name of the attacked player. The formatted message is then sent to the chat.
 
 Message Display: The death message is displayed in the chat for everyone to see.
 
 # How To Edit This Mod
 Simply download download the zip and extract it. Open it in an IDE. 
 Edit the things you want to change, add some death message if you want
-`./gradlew build` to build this
+`./gradlew build` to build this.
