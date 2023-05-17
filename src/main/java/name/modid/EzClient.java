@@ -70,8 +70,11 @@ public class EzClient implements ClientModInitializer {
                                 {
                                     context.getSource().sendFeedback(Text.of("AutoEz is already turned on"));
                                 }
-                                modEnabled = true;
-                                context.getSource().sendFeedback(Text.of("AutoEz has been turned on"));
+                                else
+                                {
+                                    modEnabled = true;
+                                    context.getSource().sendFeedback(Text.of("AutoEz has been turned on"));
+                                }
                                 return 1;
                             }))
                     .then(ClientCommandManager.literal("off")
@@ -80,8 +83,11 @@ public class EzClient implements ClientModInitializer {
                                 {
                                     context.getSource().sendFeedback(Text.of("AutoEz is already turned off"));
                                 }
-                                modEnabled = false;
-                                context.getSource().sendFeedback(Text.of("AutoEz has been turned off"));
+                                else
+                                {
+                                    modEnabled = false;
+                                    context.getSource().sendFeedback(Text.of("AutoEz has been turned off"));
+                                }
                                 return 1;
                             })));
         });
